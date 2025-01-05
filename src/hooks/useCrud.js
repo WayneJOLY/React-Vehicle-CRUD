@@ -15,8 +15,15 @@ const useCrud = (baseUrl) => {
     .then(setApi([...apiData,data]))
     .catch(error=> console.log(error))
  }
+ const deleteApi=(path,id)=>{
+   axios.delete(`${baseUrl}${path}${id}`)
+   .then(() =>{
+      setApi(apiData.filter(element =>element.id != id))
+   })
+   .catch(error=> console.log(error))
+ }
 
- return [apiData,getApi,postApi];
+ return [apiData,getApi,postApi,deleteApi];
 }
 
 export default useCrud
