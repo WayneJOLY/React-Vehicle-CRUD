@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import './App.css'
 import CarsCard from './components/CarsCard.jsx'
+import CarForm from './components/CarForm.jsx'
 import useCrud from './hooks/useCrud.js'
 
 const App = () => {
@@ -14,6 +15,8 @@ const App = () => {
 
   return (
     <main>
+      <CarForm
+      addCar={addCar}/>
       {
         cars?.map((car,index)=>(
           <CarsCard
