@@ -2,32 +2,32 @@ import axios from 'axios'
 import  { useState } from 'react'
 
 const useCrud = (baseUrl) => {
- const [apiData,setApi]= useState()
+ const [apiData,setApiData]= useState()
 
- const getApi=(path)=>{
+ const getApiData=(path)=>{
     axios.get(`${baseUrl}${path}`)
-    .then(res=> setApi(res.data))
+    .then(res=> setApiData(res.data))
     .catch(error=> console.log(error))
  }
 
- const postApi=(path,data)=>{
+ const postApiData=(path,data)=>{
     axios.post(`${baseUrl}${path}`,data)
-    .then(setApi([...apiData,data]))
+    .then(setApiData([...apiData,data]))
     .catch(error=> console.log(error))
  }
- const deleteApi=(path,id)=>{
+ const deleteApiData=(path,id)=>{
    axios.delete(`${baseUrl}${path}/${id}/`)
    .then(() =>{
-      setApi(apiData.filter(element =>element.id != id))
+      setApiData(apiData.filter(element =>element.id != id))
    })
    .catch(error=> console.log(error))
  }
 const updateApiData=(path,id,data)=>{
    axios.patch(`${baseUrl}${path}/${id}`,data)
-   .then(res => setApi(apiData.map(element=> element.id != id ? element : res.data)))
+   .then(res => setApiData(apiData.map(element=> element.id != id ? element : res.data)))
    .catch(error=> console.log(error))
 }
- return [apiData,getApi,postApi,deleteApi];
+ return [apiData,getApiData,postApiData,deleteApiData,updateApiData];
 }
 
 export default useCrud
