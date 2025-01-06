@@ -11,12 +11,12 @@ const useCrud = (baseUrl) => {
  }
 
  const postApi=(path,data)=>{
-    axios.post(`${baseUrl}${path}`)
+    axios.post(`${baseUrl}${path}`,data)
     .then(setApi([...apiData,data]))
     .catch(error=> console.log(error))
  }
  const deleteApi=(path,id)=>{
-   axios.delete(`${baseUrl}${path}${id}`)
+   axios.delete(`${baseUrl}${path}/${id}/`)
    .then(() =>{
       setApi(apiData.filter(element =>element.id != id))
    })
