@@ -1,4 +1,3 @@
-import React from 'react'
 import { useForm } from 'react-hook-form'
 
 const CarForm = ({addCar}) => {
@@ -7,7 +6,7 @@ const CarForm = ({addCar}) => {
 
 
  const submit=(data)=>{
-    addCar("cars/",data)
+    addCar("/cars/",data)
  }
   return (
     <form onSubmit={handleSubmit(submit)}>
@@ -20,6 +19,9 @@ const CarForm = ({addCar}) => {
         
         <label htmlFor="color">color</label>
         <input type="text" id='color'{...register('color')} required/>
+
+        <label htmlFor="year">year</label>
+        <input type="text" id='year'{...register('year')} required/>
         
         <label htmlFor="price">price</label>
         <input type="text" id='price' {...register('price')} required/>
