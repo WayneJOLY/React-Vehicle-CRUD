@@ -1,12 +1,30 @@
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
-const CarForm = ({addCar}) => {
+const CarForm = ({addCar,modifyCar,updateCar}) => {
 
- const{register,handleSubmit } =useForm()
+ const{register,handleSubmit,reset } =useForm()
 
+useEffect(() => {
+  reset(updateCar)
+}, [updateCar])
 
  const submit=(data)=>{
+  if(updateCar){
+    modifyCar("/cars",updateCar.id,data)
+  }
+  else{
     addCar("/cars/",data)
+  }
+
+  reset({
+    brand:"",
+    model:'',
+    color:'',
+    year:'',
+    price:'',
+    image:''
+  })
  }
   return (
     <form onSubmit={handleSubmit(submit)}>
