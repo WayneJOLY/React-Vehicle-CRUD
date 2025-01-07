@@ -30,4 +30,4 @@ const updateApiData=(path,id,data)=>{
  return [apiData,getApiData,postApiData,deleteApiData,updateApiData];
 }
 
-export default useCrud
+export default useCrud;
