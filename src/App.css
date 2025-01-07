@@ -27,19 +27,18 @@
 .card figcaption{
   grid-area: cards;
   position: relative;
-  background: #111010f0;
+  background: rgba(246, 244, 242, 0.593);
   transform: translateY(calc(100% - 4rem));
   transition: transform 600ms;
   padding: 0px 20px 20px 20px;
 }
 
 .card h3{
-  height: 4rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   font-weight: 600;
-  font-size: 21px;
+  font-size: 28px;
   letter-spacing: 1px;
   text-transform: capitalize;
 }
@@ -65,20 +64,37 @@
   text-align: center;
 }
 
-.card figcaption a:hover{
-  color: #f1f1f1;
-}
 
-.link1{
+
+
+.btn-container{
   position: absolute;
   left: 10px;
   bottom: 10px;
+  width: 80%;
+  display: flex;
+  margin: 20px;
+  justify-content: space-between;
+  
 }
-.link2{
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
+button{
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  outline: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+}
+
+.deleteBtn{
+  background-color: rgb(149, 3, 3);
 }
 .card:hover figcaption{
   transform: none;
+  background-color: rgba(246, 244, 242, 0.593);
 }
