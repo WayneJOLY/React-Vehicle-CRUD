@@ -18,8 +18,10 @@ const CarsCard = ({car,deleteCar,setUpdateCar}) => {
                     <li><span>Year: </span><span>{car.year}</span></li>
                     <li><span>Price: $</span><span>{car.price}</span></li>
                 </ul>
-                <button onClick={handleUpdate} className='updatebtn'>Update</button>
-                <button onClick={handleDelete} className='deleteBtn'>Delete</button>
+                <div className="btn-container">
+                    <button onClick={handleUpdate} className='updatebtn'>Update</button>
+                    <button onClick={handleDelete} className='deleteBtn'>Delete</button>
+                </div>
     </figcaption>
     </figure>
   )
