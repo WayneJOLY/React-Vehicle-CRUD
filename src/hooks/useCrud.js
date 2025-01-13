@@ -23,7 +23,7 @@ const useCrud = (baseUrl) => {
    .catch(error=> console.log(error))
  }
 const updateApiData=(path,id,data)=>{
-   axios.patch(`${baseUrl}${path}/${id}`,data)
+   axios.put(`${baseUrl}${path}/${id}/`,data)
    .then(res => setApiData(apiData.map(element=> element.id != id ? element : res.data)))
    .catch(error=> console.log(error))
 }
