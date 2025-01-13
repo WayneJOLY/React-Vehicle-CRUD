@@ -6,21 +6,31 @@ import useCrud from './hooks/useCrud.js'
 
 const App = () => {
   const urlbase="http://localhost:8080/api/v1/"
-  const [cars,getCar,addCar,deleteCar,modifyCAr]=useCrud(urlbase)
+  const [cars,getCar,addCar,deleteCar,modifyCar]=useCrud(urlbase)
   const [updateCar,setUpdateCar]=useState()
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
   getCar("cars/")
   }, [])
   
-
+const handleOpen=()=>{
+  setIsOpen(!isOpen)
+  console.log(isOpen)
+}
   return (
     <main>
-      <CarForm
-      addCar={addCar}
-      updateCar={updateCar}
-      modifyCAr={modifyCAr}/>
-      <div className="cars-container">
+      <button onClick={handleOpen}>Add Car</button>
+      {isOpen ? (
+        <>
+          <CarForm
+            addCar={addCar}
+            updateCar={updateCar}
+            modifyCar={modifyCar}
+          />
+        </>
+      ) : null}
+    <div className="cars-container">
       {
         cars?.map((car,index)=>(
           <CarsCard
