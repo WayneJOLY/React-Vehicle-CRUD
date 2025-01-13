@@ -42,7 +42,7 @@ main{
 
 .card h3{
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   font-weight: 600;
   font-size: 28px;
@@ -60,10 +60,7 @@ main{
   padding: 5px 7px;
   border-radius: 5px;
 }
-ul:nth-child(even){
-  border-left: 5px solid,black;
-  border-right: 1px solid,black;
-}
+
 .btn-container{
   position: absolute;
   left: 10px;
@@ -116,6 +113,7 @@ button{
   border: none;
   outline: none;
   cursor: pointer;
+  min-width: 153px;
 }
 
 .cars-container{
