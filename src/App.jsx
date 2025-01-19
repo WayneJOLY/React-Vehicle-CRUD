@@ -20,17 +20,18 @@ const handleOpen=()=>{
 }
   return (
     <main>
-      <button onClick={handleOpen}>Add Car</button>
+      <button onClick={handleOpen} className='addcar'>Add Car</button>
       {isOpen ? (
         <>
           <CarForm
             addCar={addCar}
             updateCar={updateCar}
             modifyCar={modifyCar}
+            setIsOpen={setIsOpen}
           />
         </>
       ) : null}
-    <div className="cars-container">
+    <div className={`cars-container ${isOpen}`}>
       {
         cars?.map((car,index)=>(
           <CarsCard
@@ -38,6 +39,7 @@ const handleOpen=()=>{
           car={car}
           deleteCar={deleteCar}
           setUpdateCar={setUpdateCar}
+          setIsOpen={setIsOpen}
           />
         ))
       }
