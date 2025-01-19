@@ -2,17 +2,19 @@ import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import '../App'
 
-const CarForm = ({addCar,modifyCar,updateCar}) => {
+const CarForm = ({addCar,updateCar,modifyCar,setIsOpen}) => {
 
  const{register,handleSubmit,reset } =useForm()
 
 useEffect(() => {
   reset(updateCar)
+  console.log(updateCar)
 }, [updateCar])
 
  const submit=(data)=>{
+  
   if(updateCar){
-    modifyCar("/cars",updateCar.id,data)
+    modifyCar("cars",updateCar.id,data)
   }
   else{
     addCar("/cars",data)
@@ -26,6 +28,7 @@ useEffect(() => {
     price:'',
     image:''
   })
+  setIsOpen(false)
  }
   return (
     <form onSubmit={handleSubmit(submit)}>
@@ -47,7 +50,7 @@ useEffect(() => {
         
         
         <input placeholder='Image' type="text" id='image'{...register('image')} required/>
-        <button className='submit'>submit</button>
+        <button className='submit addcar'>submit</button>
     </form>
   )
 }

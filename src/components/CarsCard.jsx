@@ -1,11 +1,12 @@
 import '../App.css'
-const CarsCard = ({car,deleteCar,setUpdateCar}) => {
+const CarsCard = ({car,deleteCar,setUpdateCar,setIsOpen}) => {
   const handleDelete=()=>{
       deleteCar('/cars',car.id)
   }
 
   const handleUpdate=()=>{
     setUpdateCar(car)
+    setIsOpen(true)
   }
   
   return (
@@ -19,7 +20,7 @@ const CarsCard = ({car,deleteCar,setUpdateCar}) => {
                     <li><span>Price: $</span><span>{car.price}</span></li>
                 </ul>
                 <div className="btn-container">
-                    <button onClick={handleUpdate} className='updatebtn'>Update</button>
+                    <button onClick={handleUpdate} className='updateBtn'>Update</button>
                     <button onClick={handleDelete} className='deleteBtn'>Delete</button>
                 </div>
     </figcaption>
