@@ -12,6 +12,7 @@ body{
 main{
   width: 100%;
   min-height: 100%;
+  position: relative;
 }
 .card{
   width: 400px;
@@ -21,7 +22,7 @@ main{
   grid-template-areas: "cards";
   overflow: hidden;
   border-radius: 10px;
-  border:5px solid red;
+  border:none;
 }
 
 .card img{
@@ -77,12 +78,15 @@ form {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  max-width: 350px;
-  background-color: #fff;
+  min-width: 350px;
+  background-color: #f6f4f4ec;
   padding: 20px;
   border-radius: 20px;
-  position: relative;
-  border: solid 2px green;
+  position: absolute;
+  top: 0%;
+  left: 35%;
+  border: none;
+  z-index: 7;
 }
 
 input {
@@ -116,14 +120,36 @@ button{
   min-width: 153px;
 }
 
+button:hover{
+  color: aliceblue;
+}
+
 .cars-container{
   display: flex;
   flex-wrap: wrap;
   min-width: 100%;
 }
 
+.updateBtn{
+  background-color: #009f42;
+}
+
+.updateBtn:hover{
+  background-color: #184d25;
+}
 .deleteBtn{
-  background-color: rgb(149, 3, 3);
+  background-color: #b41c2b;
+}
+
+.deleteBtn:hover{
+  background-color:#581919;
+}
+.addcar{
+  background-color: #388cfa;
+}
+
+.addcar:hover{
+  background-color: #284475;
 }
 .card:hover figcaption{
   transform: none;
